@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Recognition</title>
+
+    <!-- Font Awesome -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.css"
+    rel="stylesheet"
+    />
+
+</head>
+<body>
+
+
+    <div class="p-4">
+
+        <h3 class="text-center text-white mb-4 my-2 p-4 bg-primary card">Face Recognition using Amazon Rekognition</h3>
+
+        <div class="row p-4">
+
+            <h4 class="text-center text-white mb-4 my-2 p-4 bg-success card">Steps to Follow</h4>
+            <div class="bg-light border border-info my-2 p-4 card">
+                <div>
+                    <h4 style="float:left;" class="m-0 p-0">Create Collection</h4>
+                    <button style="float:right;" id="collection" type="button" class="mx-auto btn btn-primary text-nowrap" onclick="window.location.href='{{ url_for( 'collection_page') }}'">Go</button>
+                    <br>
+                    <br>
+                    <small style="float:left;" class="text-muted">If you don't have a collection click on Go button and create collection. And also you can check created collection by clicking same button</small>
+
+                </div>
+            </div>
+
+            <div class="bg-light border border-info my-2 p-4 card">
+                <div>
+                    <h4 style="float:left;" class="m-0 p-0">Register Faces</h4>
+                    <button style="float:right;" id="register" type="button" class="mx-auto btn btn-primary text-nowrap" onclick="window.location.href='{{ url_for( 'register_page') }}'">Go</button>
+                    <br>
+                    <br>
+                    <small style="float:left;" class="text-muted">If you want to Register particular person's Face then click on Go button</small>
+
+                </div>
+
+            </div>
+
+            <div class="bg-light border border-info my-2 p-4 card">
+                <div>
+                    <h4 style="float:left;" class="m-0 p-0">Recognize Faces</h4>
+                    <button style="float:right;" id="recognize" type="button" class="mx-auto btn btn-primary text-nowrap" onclick="window.location.href='{{ url_for( 'recognize_page') }}'">Go</button>
+                    <br>
+                    <br>
+                    <small style="float:left;" class="text-muted">If you want to start Recognize faces you click on go button and you can start recognition</small>
+
+                </div>
+
+            </div>
+
+            <div class="bg-light border border-info my-2 p-4 card">
+                <img src="../static/images/flow.png" style="width:100%">
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- MDB -->
+    <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.js"
+    ></script>
+    <script type="text/javascript">
+        window.history.forward();
+        function noBack() {
+            window.history.forward();
+        }
+    </script>
+
+</body>
+</html>

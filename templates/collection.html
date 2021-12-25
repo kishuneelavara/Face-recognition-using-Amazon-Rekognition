@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collection</title>
+    <style>
+        .hidden {
+          display: none;
+        }
+    </style>
+    <!-- Font Awesome -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.css"
+    rel="stylesheet"
+    />
+
+</head>
+<body onload="hideLoadingDiv()">
+
+     <div class="p-4">
+        <h3 class="text-center text-white mb-4 my-2 p-4 bg-primary card">Face Recognition using Amazon Rekognition</h3>
+        <div class="text-right">
+             <button style="float:right" type="button" class="mx-auto btn btn-primary text-nowrap" onclick="window.location.href='{{ url_for( 'start_page') }}'"> Go Back to Home</button>
+         </div>
+         <br><br>
+
+
+        <div class="bg-light border border-info my-2 p-4 card">
+                <div>
+                    <h4 style="float:left;" class="m-0 p-0">About Collection</h4>
+                    <br>
+                    <br>
+                    <small style="float:left;" class="text-muted">You can create collection or you can delete collection in this page</small>
+
+                </div>
+        </div>
+         <div class="row">
+             <div class="col-12  col-md-6 col-lg-6   border p-4">
+                 <div class="text-center" >
+                    <button style="width:100%" type="button" class="mx-auto btn btn-primary text-nowrap" onclick="window.location.href='{{ url_for( 'register_page') }}'"> Go for Register faces</button>
+                </div>
+             </div>
+             <div class="col-12  col-md-6 col-lg-6   border p-4">
+                 <div class="text-center" >
+                    <button style="width:100%" type="button" class="mx-auto btn btn-primary text-nowrap" onclick="window.location.href='{{ url_for( 'recognize_page') }}'"> Go for Recognize Faces</button>
+                </div>
+             </div>
+         </div>
+         {% if statement %}
+            <div class="text-center" id="LOADING" >
+                <br>
+                <button style="width:100%" type="submit" class="mx-auto btn btn-warning text-wrap"> {{ statement }}</button>
+
+            </div>
+         <br>
+        {% endif %}
+        <div class="row">
+            <div class="col-12  col-md-4 col-lg-4   border p-4">
+                <div >
+                    <form id="todo-form" action="/create_page" method="post">
+                        <input id="collection-name" name="collection-name" placeholder="Enter Collection Name" class="form-control" required><br>
+                        <br>
+                        <div class="text-center">
+                            <button type="submit" class="mx-auto btn btn-primary text-nowrap">Create Collection</button>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-12 col-md-8 col-lg-8 border rounded p-4" id="todo_list">
+                <h3 class="text-center text-muted mb-3">List of  Collection</h3>
+                <small style="float:right;" class="text-muted">Total count {{ count }}</small>
+                <br>
+
+                {% for item in lst %}
+                <div id='{{ item }}' class="todo-item my-2 p-4 bg-light border border-light card">
+                    <div class="">
+                            <h4 style="float:left" class="m-0 p-0">{{ item }}</h4>
+                            <div style="float: right;">
+                                <i style="cursor: pointer;" onclick="window.location.href='{{ url_for( 'delete_page',name= item) }}'" class="fas text-danger fa-trash"></i>
+                            </div>
+                    </div>
+                    <small class="text-muted">collection name</small>
+                </div>
+                {% endfor %}
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- MDB -->
+    <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.js"
+    ></script>
+    <script>
+        function hideLoadingDiv() {
+          setTimeout(function(){
+            document.getElementById('LOADING').classList.add('hidden');
+          },5000)
+        }
+    </script>
+    <script type="text/javascript">
+            window.history.forward();
+            function noBack() {
+                window.history.forward();
+            }
+    </script>
+
+</body>
+</html>
