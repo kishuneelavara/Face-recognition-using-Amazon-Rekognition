@@ -11,7 +11,6 @@ Use python 3.7.9
   After creating user it will provide a csv file which contains credentials . csv file name - new_user_credentials.csv
   
 3 Download csv file and copy that file to Face-recognition-using-Amazon-Rekognition Directory
-Install all libraries mentioned in requirements.txt
 
 4 Install all library mentioned in requiremets.txt
 
