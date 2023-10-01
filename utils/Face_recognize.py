@@ -7,8 +7,9 @@ from PIL import Image, ImageDraw, ExifTags, ImageColor, ImageFont
 credential = pd.read_csv("new_user_credentials.csv")
 access_key_id = credential['Access key ID'][0]
 secret_access_key = credential['Secret access key'][0]
+AWS_region = "us-west-2"
 
-AWS_REKOG = boto3.client('rekognition', aws_access_key_id=access_key_id, aws_secret_access_key=secret_access_key)
+AWS_REKOG = boto3.client('rekognition', aws_access_key_id=access_key_id, aws_secret_access_key=secret_access_key,region_name=AWS_region)
 
 
 
